@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>안경 브랜드 | 불란서 안경 콘택트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.brand-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem; max-width: 1100px; margin: 0 auto;
+}
+
+.brand-card {
+  background: var(--white); border: 1px solid var(--beige);
+  border-radius: 16px; overflow: hidden;
+  transition: all 0.4s ease; cursor: default;
+  position: relative;
+}
+
+.brand-card::before {
+  content: ''; position: absolute; top:0; left:0; right:0;
+  height: 3px; z-index: 2;
+  background: linear-gradient(90deg, var(--warm-gold), var(--gold-pale));
+  transform: scaleX(0); transition: transform 0.4s;
+}
+.brand-card:hover::before { transform: scaleX(1); }
+.brand-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-color: var(--gold-pale); }
+
+.brand-card.premium { background: var(--charcoal); border-color: var(--charcoal); }
+.brand-card.premium:hover { background: var(--brown-dark); }
+.brand-card.premium .brand-info h3 { color: var(--white); }
+.brand-card.premium .brand-origin { color: rgba(255,255,255,0.4); }
+.brand-card.premium .brand-desc { color: rgba(255,255,255,0.5); }
+.brand-card.premium .brand-icon-wrap { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.1); }
+
+/* Image area */
+.brand-img {
+  width: 100%; aspect-ratio: 1;
+  overflow: hidden; background: var(--cream);
+  display: flex; align-items: center; justify-content: center;
+}
+.brand-card.premium .brand-img { background: rgba(255,255,255,0.05); }
+
+.brand-img img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.5s;
+}
+.brand-card:hover .brand-img img { transform: scale(1.05); }
+
+.brand-icon-wrap {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: var(--cream); border: 1px solid var(--beige);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem;
+}
+
+.brand-info { padding: 1.2rem; text-align: center; }
+
+.brand-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem; color: var(--charcoal);
+  margin-bottom: 0.2rem; letter-spacing: 0.5px;
+}
+
+.brand-origin { font-size: 0.72rem; color: var(--text-light); letter-spacing: 1px; }
+
+.brand-desc {
+  font-size: 0.75rem; color: var(--text-light);
+  line-height: 1.5; margin-top: 0.5rem;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+
+/* No image state */
+.brand-card.no-image .brand-info { padding: 2rem 1.2rem; }
+
+/* Loading */
+.loading-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem; max-width: 1100px; margin: 0 auto;
+}
+.loading-item {
+  aspect-ratio: 0.8; border-radius: 16px;
+  background: linear-gradient(110deg, var(--beige) 30%, var(--warm-white) 50%, var(--beige) 70%);
+  background-size: 200% 100%; animation: shimmer 1.5s ease-in-out infinite;
+}
+@keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+/* CTA */
+.cta-section { background: var(--white); text-align: center; }
+.cta-box {
+  max-width: 600px; margin: 0 auto; padding: 3rem;
+  background: var(--cream); border-radius: 20px; border: 1px solid var(--beige);
+}
+.cta-box p { color: var(--text-light); margin-bottom: 1.5rem; font-size: 0.9rem; line-height: 1.8; }
+
+@media (max-width:900px) { .brand-grid, .loading-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width:480px) { .brand-grid, .loading-grid { grid-template-columns: 1fr 1fr; gap: 0.8rem; } }
+</style>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo"><span class="nav-logo-main">불란서 안경 콘택트</span><span class="nav-logo-sub">France Optical &amp; Contact</span></a>
+  <button class="nav-toggle" id="navToggle" aria-label="메뉴"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="about.html">소개</a></li>
+    <li><a href="glasses.html" class="active">안경</a></li>
+    <li><a href="lens.html">렌즈</a></li>
+    <li><a href="instagram.html">인스타그램</a></li>
+    <li><a href="contact.html">오시는 길</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <p class="section-label">Eyewear Brands</p>
+  <h1 class="section-title">안경 브랜드</h1>
+  <div class="divider"></div>
+  <p class="section-subtitle">세계적인 명품부터 감각적인 디자인 브랜드까지<br>다양한 안경 브랜드를 만나보세요</p>
+</div>
+
+<section style="background:var(--cream);">
+  <!-- Loading -->
+  <div class="loading-grid" id="loadingGrid">
+    <div class="loading-item"></div><div class="loading-item"></div><div class="loading-item"></div><div class="loading-item"></div>
+    <div class="loading-item"></div><div class="loading-item"></div><div class="loading-item"></div><div class="loading-item"></div>
+  </div>
+  <!-- Brand Grid (JS로 채워짐) -->
+  <div class="brand-grid" id="brandGrid" style="display:none;"></div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-box reveal">
+    <p>원하시는 브랜드가 있으시면 언제든 문의해 주세요.<br>매장에서 직접 착용해보시고 나에게 맞는 안경을 찾아보세요.</p>
+    <a href="contact.html" class="btn btn-primary">매장 방문하기 →</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-logo">불란서 안경 콘택트</div>
+  <div class="footer-links">
+    <a href="about.html">소개</a><a href="glasses.html">안경</a><a href="lens.html">렌즈</a><a href="contact.html">오시는 길</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 France Optical &amp; Contact.</p>
+</footer>
+
+<script>
+async function loadBrands() {
+  const grid = document.getElementById('brandGrid');
+  const loading = document.getElementById('loadingGrid');
+
+  try {
+    const res = await fetch('data/glasses.json');
+    const data = await res.json();
+
+    grid.innerHTML = '';
+    data.brands.forEach(brand => {
+      const hasImage = brand.image && brand.image.trim() !== '';
+      const card = document.createElement('div');
+      card.className = `brand-card${brand.premium ? ' premium' : ''}${!hasImage ? ' no-image' : ''} reveal`;
+
+      if (hasImage) {
+        card.innerHTML = `
+          <div class="brand-img">
+            <img src="${brand.image}" alt="${brand.name}" loading="lazy">
+          </div>
+          <div class="brand-info">
+            <h3>${brand.name}</h3>
+            <span class="brand-origin">${brand.name_kr}</span>
+            ${brand.description ? `<p class="brand-desc">${brand.description}</p>` : ''}
+          </div>
+        `;
+      } else {
+        card.innerHTML = `
+          <div class="brand-img">
+            <div class="brand-icon-wrap">👓</div>
+          </div>
+          <div class="brand-info">
+            <h3>${brand.name}</h3>
+            <span class="brand-origin">${brand.name_kr}</span>
+            ${brand.description ? `<p class="brand-desc">${brand.description}</p>` : ''}
+          </div>
+        `;
+      }
+
+      grid.appendChild(card);
+    });
+
+    loading.style.display = 'none';
+    grid.style.display = 'grid';
+
+    // Reveal animation
+    grid.querySelectorAll('.reveal').forEach(el =>
+      new IntersectionObserver(e => e.forEach(el => {
+        if (el.isIntersecting) el.target.classList.add('visible');
+      }), { threshold: 0.1 }).observe(el)
+    );
+
+  } catch (err) {
+    console.error('데이터 로드 실패:', err);
+    loading.innerHTML = '<p style="text-align:center;color:var(--text-light);grid-column:1/-1;padding:3rem;">데이터를 불러오는 중 오류가 발생했습니다.</p>';
+  }
+}
+
+loadBrands();
+
+// Nav
+const toggle=document.getElementById('navToggle'),links=document.getElementById('navLinks');
+toggle.addEventListener('click',()=>links.classList.toggle('open'));
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+document.querySelectorAll('.reveal').forEach(el=>new IntersectionObserver(e=>e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')}),{threshold:0.12}).observe(el));
+</script>
+<script>if(window.netlifyIdentity){window.netlifyIdentity.on("init",u=>{if(!u){window.netlifyIdentity.on("login",()=>{document.location.href="/admin/"})}})}</script>
+</body>
+</html>

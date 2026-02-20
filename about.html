@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>소개 | 불란서 안경 콘택트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 4rem; align-items: center;
+}
+.about-visual {
+  height: 420px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+.about-visual img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.about-text .section-label, .about-text .section-title { text-align: left; }
+.about-text .section-subtitle { text-align: left; margin: 0 0 2rem; }
+
+.values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.value-card {
+  padding: 1.5rem; background: var(--cream);
+  border-radius: 12px; border: 1px solid var(--beige); transition: all 0.3s;
+}
+.value-card:hover { border-color: var(--gold-pale); box-shadow: 0 4px 15px rgba(184,149,106,0.1); }
+.value-card .vi { font-size: 1.4rem; margin-bottom: 0.6rem; }
+.value-card h4 { font-family: 'Playfair Display', serif; font-size: 0.95rem; margin-bottom: 0.3rem; }
+.value-card p { font-size: 0.78rem; color: var(--text-light); line-height: 1.6; }
+
+/* Story section */
+.story { background: var(--cream); }
+.story-content { max-width: 700px; margin: 0 auto; text-align: center; }
+.story-content p { color: var(--brown-soft); line-height: 2; font-size: 0.95rem; margin-bottom: 1.8rem; letter-spacing: -0.2px; }
+.story-quote {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.5rem;
+  color: var(--warm-gold); font-style: italic; margin: 2rem 0;
+  padding: 2rem; border-top: 1px solid var(--beige); border-bottom: 1px solid var(--beige);
+}
+
+/* Services */
+.services { background: var(--white); }
+.services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+.service-card {
+  text-align: center; padding: 2.5rem 1.5rem;
+  border: 1px solid var(--beige); border-radius: 16px;
+  background: var(--cream); transition: all 0.4s;
+}
+.service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-color: var(--gold-pale); }
+.service-card .si { font-size: 2rem; margin-bottom: 1rem; }
+.service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.5rem; }
+.service-card p { font-size: 0.82rem; color: var(--text-light); line-height: 1.7; }
+
+@media (max-width:900px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+}
+</style>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo"><span class="nav-logo-main">불란서 안경 콘택트</span><span class="nav-logo-sub">France Optical &amp; Contact</span></a>
+  <button class="nav-toggle" id="navToggle" aria-label="메뉴"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="about.html" class="active">소개</a></li>
+    <li><a href="glasses.html">안경</a></li>
+    <li><a href="lens.html">렌즈</a></li>
+    <li><a href="instagram.html">인스타그램</a></li>
+    <li><a href="contact.html">오시는 길</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <p class="section-label">About Us</p>
+  <h1 class="section-title">불란서 안경 콘택트를 소개합니다</h1>
+  <div class="divider"></div>
+  <p class="section-subtitle">정직과 신용으로 고객의 눈 건강을 책임집니다</p>
+</div>
+
+<section class="about" style="background:var(--white);">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <img src="images/store.png" alt="불란서 안경 콘택트 매장 외관">
+      </div>
+      <div class="about-text reveal">
+        <p class="section-label">Our Story</p>
+        <h2 class="section-title">눈은 밝게,<br>얼굴은 아름답게</h2>
+        <div class="divider" style="margin:1rem 0;"></div>
+        <p class="section-subtitle">
+          불란서 안경 콘택트는 정확한 검안과 최고 품질의 렌즈, 그리고 세계적인 명품 안경테로 고객 한 분 한 분에게 최적의 시력 솔루션을 제공합니다.
+          한번 찾아오신 고객이 평생 단골이 되는 것이 저희의 자부심입니다.
+        </p>
+        <div class="values-grid">
+          <div class="value-card"><div class="vi">🔍</div><h4>정밀 검안</h4><p>최신 장비를 통한 정밀 시력검사</p></div>
+          <div class="value-card"><div class="vi">✨</div><h4>맞춤 제작</h4><p>개인에 맞는 최적의 렌즈 선택</p></div>
+          <div class="value-card"><div class="vi">🏆</div><h4>프리미엄 브랜드</h4><p>세계 명품 안경 컬렉션 보유</p></div>
+          <div class="value-card"><div class="vi">💛</div><h4>고객 중심</h4><p>친절한 상담과 사후 관리</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="story">
+  <div class="story-content reveal">
+    <div class="story-quote">"한번 온 손님은 평생 단골"</div>
+    <p>
+      불란서 안경 콘택트는 1986년 6월 3일, '불란서(프랑스) 안경원'이라는 이름으로 문을 열었습니다.<br>
+      이후 40년 가까이 한결같은 자리에서 '정직과 신용'을 운영 모토로 삼아<br>
+      고객 한 분 한 분의 눈 건강을 책임져 왔습니다.
+    </p>
+    <p>
+      안경에서 가장 중요한 렌즈는 하이퀄리티 제품만을 사용하며,<br>
+      고객님의 도수, 피팅, 취향까지 세심하게 고려하여<br>
+      검안부터 제작, 판매에 이르기까지 정확한 데이터로<br>
+      최적의 맞춤 안경을 만들기 위해 늘 최선을 다하고 있습니다.
+    </p>
+    <p>
+      매장에는 최소 3년에서 20년 이상의 경력을 갖춘<br>
+      전문 안경사들이 항상 대기하고 있으며,<br>
+      다양한 정밀 검사와 완벽한 피팅을 보장해 드릴 것을 약속합니다.
+    </p>
+    <p>
+      친절하고 진실하며 성심껏 고객을 모시는 기본 자세를 항상 강조하며,<br>
+      가족 같은 분위기에서 고객을 맞이하고 있습니다.<br>
+      40년 전통의 신뢰, 불란서 안경 콘택트가 여러분의 눈을 지켜드리겠습니다.
+    </p>
+  </div>
+</section>
+
+<section class="services">
+  <div class="section-header reveal">
+    <p class="section-label">Services</p>
+    <h2 class="section-title">전문 서비스</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="container">
+    <div class="services-grid reveal">
+      <div class="service-card"><div class="si">🔍</div><h3>정밀 시력검사</h3><p>최신 장비로 안구 건강 상태를 종합 점검합니다</p></div>
+      <div class="service-card"><div class="si">👓</div><h3>안경 맞춤 제작</h3><p>전문가가 고품질 렌즈로 정밀하게 제작합니다</p></div>
+      <div class="service-card"><div class="si">👁️</div><h3>콘택트렌즈 상담</h3><p>소프트렌즈, RGP, 컬러렌즈 등 맞춤 피팅</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-logo">불란서 안경 콘택트</div>
+  <div class="footer-links">
+    <a href="about.html">소개</a><a href="glasses.html">안경</a><a href="lens.html">렌즈</a><a href="contact.html">오시는 길</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 France Optical &amp; Contact.</p>
+</footer>
+
+<script>
+const toggle=document.getElementById('navToggle'),links=document.getElementById('navLinks');
+toggle.addEventListener('click',()=>links.classList.toggle('open'));
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+document.querySelectorAll('.reveal').forEach(el=>new IntersectionObserver(e=>e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')}),{threshold:0.12}).observe(el));
+</script>
+<script>if(window.netlifyIdentity){window.netlifyIdentity.on("init",u=>{if(!u){window.netlifyIdentity.on("login",()=>{document.location.href="/admin/"})}})}</script>
+</body>
+</html>

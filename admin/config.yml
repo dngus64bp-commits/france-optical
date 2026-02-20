@@ -1,0 +1,48 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+locale: 'ko'
+
+collections:
+  - name: "site_data"
+    label: "📦 콘텐츠 관리"
+    files:
+      - name: "glasses"
+        label: "👓 안경 브랜드"
+        file: "data/glasses.json"
+        fields:
+          - name: "brands"
+            label: "브랜드 목록"
+            label_singular: "브랜드"
+            widget: "list"
+            summary: "{{fields.name}} ({{fields.name_kr}})"
+            fields:
+              - {name: "name", label: "브랜드명 (영문)", widget: "string", hint: "예: LINDBERG"}
+              - {name: "name_kr", label: "브랜드명 (한글)", widget: "string", hint: "예: 린드버그"}
+              - {name: "image", label: "브랜드 이미지", widget: "image", required: false, hint: "브랜드 대표 이미지 (정사각형 권장)"}
+              - {name: "description", label: "설명", widget: "text", required: false, hint: "브랜드 소개 문구"}
+              - {name: "premium", label: "프리미엄 브랜드", widget: "boolean", default: false, hint: "ON이면 검은 배경으로 강조 표시"}
+
+      - name: "lens"
+        label: "👁️ 렌즈 브랜드"
+        file: "data/lens.json"
+        fields:
+          - name: "brands"
+            label: "브랜드 목록"
+            label_singular: "브랜드"
+            widget: "list"
+            summary: "{{fields.name}} ({{fields.name_kr}})"
+            fields:
+              - {name: "name", label: "브랜드명 (영문)", widget: "string", hint: "예: Acuvue"}
+              - {name: "name_kr", label: "브랜드명 (한글)", widget: "string", hint: "예: 아큐브"}
+              - {name: "image", label: "브랜드 이미지", widget: "image", required: false}
+              - {name: "description", label: "설명", widget: "text", required: false, hint: "브랜드 소개 문구"}
+              - name: "products"
+                label: "대표 제품"
+                widget: "list"
+                required: false
+                field: {name: "product", label: "제품명", widget: "string"}

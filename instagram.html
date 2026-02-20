@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>인스타그램 | 불란서 안경 콘택트</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.insta-feed {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1rem; max-width: 900px; margin: 0 auto 3rem;
+}
+.insta-item {
+  aspect-ratio: 1; border-radius: 14px; overflow: hidden;
+  position: relative; cursor: pointer; transition: all 0.4s;
+  background: var(--beige); display: block;
+}
+.insta-item img {
+  width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s;
+}
+.insta-item:hover img { transform: scale(1.05); }
+.insta-item .overlay {
+  position: absolute; inset: 0;
+  background: rgba(44,40,36,0);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.4s;
+}
+.insta-item:hover .overlay { background: rgba(44,40,36,0.3); }
+.overlay-stat {
+  color: white; font-size: 1.3rem; opacity: 0; transition: opacity 0.4s;
+}
+.insta-item:hover .overlay-stat { opacity: 1; }
+
+/* Loading shimmer */
+.loading-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1rem; max-width: 900px; margin: 0 auto 3rem;
+}
+.loading-item {
+  aspect-ratio: 1; border-radius: 14px;
+  background: linear-gradient(110deg, var(--beige) 30%, var(--warm-white) 50%, var(--beige) 70%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+@keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+
+/* Placeholder */
+.placeholder-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1rem; max-width: 900px; margin: 0 auto 3rem;
+}
+.placeholder-item {
+  aspect-ratio: 1; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2.2rem; opacity: 0.3; transition: all 0.4s;
+}
+.placeholder-item:hover { opacity: 0.5; transform: scale(1.02); }
+.placeholder-item:nth-child(1){background:linear-gradient(135deg,#f0e6d8,#e8dccb)}
+.placeholder-item:nth-child(2){background:linear-gradient(135deg,#e8dccb,#ddd2c3)}
+.placeholder-item:nth-child(3){background:linear-gradient(135deg,#f5efe7,#e8dccb)}
+.placeholder-item:nth-child(4){background:linear-gradient(135deg,#ddd2c3,#d4c8b8)}
+.placeholder-item:nth-child(5){background:linear-gradient(135deg,#e8dccb,#f0e6d8)}
+.placeholder-item:nth-child(6){background:linear-gradient(135deg,#d4c8b8,#e8dccb)}
+.placeholder-item:nth-child(7){background:linear-gradient(135deg,#f0e6d8,#ddd2c3)}
+.placeholder-item:nth-child(8){background:linear-gradient(135deg,#e8dccb,#f5efe7)}
+.placeholder-item:nth-child(9){background:linear-gradient(135deg,#ddd2c3,#f0e6d8)}
+
+/* Profile */
+.insta-profile { text-align: center; max-width: 500px; margin: 0 auto; }
+.profile-avatar {
+  width: 90px; height: 90px; border-radius: 50%;
+  background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  padding: 3px; margin: 0 auto 1.2rem;
+}
+.profile-avatar-inner {
+  width: 100%; height: 100%; border-radius: 50%;
+  background: var(--cream);
+  display: flex; align-items: center; justify-content: center; font-size: 2rem;
+}
+.insta-handle { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--charcoal); margin-bottom: 0.3rem; }
+.insta-handle a { color: var(--charcoal); text-decoration: none; transition: color 0.3s; }
+.insta-handle a:hover { color: var(--warm-gold); }
+.insta-bio { color: var(--text-light); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.8rem; }
+.insta-follow-btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.8rem 2.2rem;
+  background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: white; border-radius: 100px; font-size: 0.85rem;
+  letter-spacing: 1px; font-weight: 500; transition: all 0.3s; text-decoration: none;
+}
+.insta-follow-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(225,48,108,0.3); }
+
+/* Setup guide */
+.setup-guide { background: var(--white); }
+.guide-box {
+  max-width: 700px; margin: 0 auto; padding: 2.5rem;
+  background: var(--cream); border: 1px solid var(--beige); border-radius: 20px;
+}
+.guide-box h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.2rem; }
+.guide-steps { display: flex; flex-direction: column; gap: 1rem; }
+.guide-step {
+  display: flex; gap: 1rem; align-items: flex-start;
+  padding: 1rem; background: var(--white); border-radius: 12px; border: 1px solid var(--beige);
+}
+.step-num {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--warm-gold); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; font-weight: 600; flex-shrink: 0;
+}
+.guide-step p { font-size: 0.85rem; color: var(--brown-soft); line-height: 1.6; }
+.guide-step a { color: var(--warm-gold); }
+.guide-step code { background: var(--beige); padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.8rem; }
+
+@media (max-width:900px) {
+  .insta-feed, .loading-grid, .placeholder-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo"><span class="nav-logo-main">불란서 안경 콘택트</span><span class="nav-logo-sub">France Optical &amp; Contact</span></a>
+  <button class="nav-toggle" id="navToggle" aria-label="메뉴"><span></span><span></span><span></span></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="about.html">소개</a></li>
+    <li><a href="glasses.html">안경</a></li>
+    <li><a href="lens.html">렌즈</a></li>
+    <li><a href="instagram.html" class="active">인스타그램</a></li>
+    <li><a href="contact.html">오시는 길</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <p class="section-label">Instagram</p>
+  <h1 class="section-title">인스타그램</h1>
+  <div class="divider"></div>
+  <p class="section-subtitle">불란서 안경 콘택트의 일상과 새로운 소식을 만나보세요</p>
+</div>
+
+<section style="background:var(--cream);">
+  <!-- Loading -->
+  <div class="loading-grid" id="loadingGrid">
+    <div class="loading-item"></div><div class="loading-item"></div><div class="loading-item"></div>
+    <div class="loading-item"></div><div class="loading-item"></div><div class="loading-item"></div>
+    <div class="loading-item"></div><div class="loading-item"></div><div class="loading-item"></div>
+  </div>
+
+  <!-- Real Feed (JS로 채워짐) -->
+  <div class="insta-feed" id="instaFeed" style="display:none;"></div>
+
+  <!-- Placeholder (토큰 없을 때) -->
+  <div class="placeholder-grid" id="placeholderGrid" style="display:none;">
+    <div class="placeholder-item">👓</div><div class="placeholder-item">🕶️</div>
+    <div class="placeholder-item">👁️</div><div class="placeholder-item">✨</div>
+    <div class="placeholder-item">📸</div><div class="placeholder-item">🏬</div>
+    <div class="placeholder-item">💎</div><div class="placeholder-item">👀</div>
+    <div class="placeholder-item">🌟</div>
+  </div>
+
+  <!-- Profile -->
+  <div class="insta-profile reveal">
+    <div class="profile-avatar"><div class="profile-avatar-inner">👓</div></div>
+    <div class="insta-handle"><a href="https://www.instagram.com/bullanseo_o" target="_blank">@bullanseo_o</a></div>
+    <p class="insta-bio">신상 안경, 렌즈 소식, 스타일링 팁, 매장 일상까지<br>인스타그램에서 더 많은 이야기를 만나보세요!</p>
+    <a href="https://www.instagram.com/bullanseo_o" target="_blank" class="insta-follow-btn">팔로우하기</a>
+  </div>
+</section>
+
+<!-- 설정 가이드 (토큰 없을 때만 표시) -->
+<section class="setup-guide" id="setupGuide" style="display:none;">
+  <div class="guide-box">
+    <h3>📷 인스타그램 자동 연동 설정 방법</h3>
+    <div class="guide-steps">
+      <div class="guide-step">
+        <div class="step-num">1</div>
+        <p>인스타그램 계정을 <strong>비즈니스 계정</strong>으로 전환<br>설정 → 계정 유형 및 도구 → 비즈니스 계정으로 전환</p>
+      </div>
+      <div class="guide-step">
+        <div class="step-num">2</div>
+        <p><a href="https://developers.facebook.com" target="_blank">Meta 개발자 사이트</a>에 가입 후 앱 생성<br>Instagram Basic Display API 추가</p>
+      </div>
+      <div class="guide-step">
+        <div class="step-num">3</div>
+        <p>발급받은 액세스 토큰을 이 파일의<br><code>INSTAGRAM_TOKEN</code> 부분에 붙여넣기</p>
+      </div>
+      <div class="guide-step">
+        <div class="step-num">4</div>
+        <p>토큰은 60일마다 갱신 필요<br>브라우저에서 갱신 URL 접속하면 자동 연장됩니다</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-logo">불란서 안경 콘택트</div>
+  <div class="footer-links">
+    <a href="about.html">소개</a><a href="glasses.html">안경</a><a href="lens.html">렌즈</a><a href="contact.html">오시는 길</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 France Optical &amp; Contact.</p>
+</footer>
+
+<script>
+// ================================================================
+//  인스타그램 연동 설정
+//  아래 따옴표 안에 Instagram 액세스 토큰을 붙여넣으세요.
+//  토큰이 비어있으면 플레이스홀더 이미지가 표시됩니다.
+// ================================================================
+const INSTAGRAM_TOKEN = '';   // ← 여기에 토큰 입력
+const POST_COUNT = 9;
+// ================================================================
+
+const loadingEl = document.getElementById('loadingGrid');
+const feedEl = document.getElementById('instaFeed');
+const placeholderEl = document.getElementById('placeholderGrid');
+const guideEl = document.getElementById('setupGuide');
+
+async function loadFeed() {
+  if (!INSTAGRAM_TOKEN) {
+    loadingEl.style.display = 'none';
+    placeholderEl.style.display = 'grid';
+    guideEl.style.display = 'block';
+    return;
+  }
+  try {
+    const res = await fetch(
+      `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink&limit=${POST_COUNT}&access_token=${INSTAGRAM_TOKEN}`
+    );
+    if (!res.ok) throw new Error('API error');
+    const data = await res.json();
+    if (!data.data?.length) throw new Error('No posts');
+
+    feedEl.innerHTML = '';
+    data.data.forEach(post => {
+      const img = post.media_type === 'VIDEO' ? post.thumbnail_url : post.media_url;
+      if (!img) return;
+      const el = document.createElement('a');
+      el.href = post.permalink;
+      el.target = '_blank';
+      el.className = 'insta-item';
+      el.innerHTML = `<img src="${img}" alt="${(post.caption||'').substring(0,50)}" loading="lazy"><div class="overlay"><span class="overlay-stat">♥</span></div>`;
+      feedEl.appendChild(el);
+    });
+
+    loadingEl.style.display = 'none';
+    feedEl.style.display = 'grid';
+  } catch(e) {
+    console.error('Instagram 로드 실패:', e);
+    loadingEl.style.display = 'none';
+    placeholderEl.style.display = 'grid';
+    guideEl.style.display = 'block';
+  }
+}
+loadFeed();
+
+// Nav
+const toggle=document.getElementById('navToggle'),links=document.getElementById('navLinks');
+toggle.addEventListener('click',()=>links.classList.toggle('open'));
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+document.querySelectorAll('.reveal').forEach(el=>new IntersectionObserver(e=>e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')}),{threshold:0.12}).observe(el));
+</script>
+<script>if(window.netlifyIdentity){window.netlifyIdentity.on("init",u=>{if(!u){window.netlifyIdentity.on("login",()=>{document.location.href="/admin/"})}})}</script>
+</body>
+</html>

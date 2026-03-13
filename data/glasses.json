@@ -1,180 +1,26 @@
 {
   "brands": [
-    {
-      "name": "LINDBERG",
-      "name_kr": "린드버그",
-      "image": "/images/uploads/kakaotalk_20260313_012300927.png",
-      "description": "덴마크 프리미엄 안경 브랜드. 가볍고 유연한 티타늄 프레임으로 유명합니다.",
-      "premium": true,
-      "products": []
-    },
-    {
-      "name": "Gentle Monster",
-      "name_kr": "젠틀몬스터",
-      "image": "",
-      "description": "한국 대표 디자이너 아이웨어 브랜드. 독창적인 디자인과 트렌디한 스타일.",
-      "premium": true,
-      "products": []
-    },
-    {
-      "name": "Silhouette",
-      "name_kr": "실루엣",
-      "image": "",
-      "description": "오스트리아 명품 안경. 세계에서 가장 가벼운 안경을 만듭니다.",
-      "premium": true,
-      "products": []
-    },
-    {
-      "name": "Tom Ford",
-      "name_kr": "톰포드",
-      "image": "",
-      "description": "럭셔리 패션 하우스의 클래식하고 세련된 아이웨어.",
-      "premium": true,
-      "products": []
-    },
-    {
-      "name": "GUCCI",
-      "name_kr": "구찌",
-      "image": "",
-      "description": "이탈리아 럭셔리 브랜드의 아이코닉한 안경 컬렉션.",
-      "premium": true,
-      "products": []
-    },
-    {
-      "name": "Saint Laurent",
-      "name_kr": "입 생 로랑",
-      "image": "",
-      "description": "파리 하이패션의 세련되고 모던한 아이웨어.",
-      "premium": true,
-      "products": []
-    },
-    {
-      "name": "MOSCOT",
-      "name_kr": "모스콧",
-      "image": "",
-      "description": "뉴욕 100년 전통의 클래식 아이웨어 브랜드.",
-      "premium": true,
-      "products": []
-    },
-    {
-      "name": "Porsche Design",
-      "name_kr": "포르쉐 디자인",
-      "image": "",
-      "description": "독일 엔지니어링의 정밀함이 담긴 프리미엄 안경.",
-      "premium": true,
-      "products": []
-    },
-    {
-      "name": "OMAS Design",
-      "name_kr": "오마스 디자인",
-      "image": "",
-      "description": "",
-      "premium": false,
-      "products": []
-    },
-    {
-      "name": "TART",
-      "name_kr": "타르트",
-      "image": "",
-      "description": "",
-      "premium": false,
-      "products": []
-    },
-    {
-      "name": "DIGNA",
-      "name_kr": "디그나",
-      "image": "",
-      "description": "",
-      "premium": false,
-      "products": []
-    },
-    {
-      "name": "VAGUE",
-      "name_kr": "바그",
-      "image": "",
-      "description": "",
-      "premium": false,
-      "products": []
-    },
-    {
-      "name": "RIM ROCK",
-      "name_kr": "림락",
-      "image": "",
-      "description": "",
-      "premium": false,
-      "products": []
-    },
-    {
-      "name": "RETRO",
-      "name_kr": "레트로",
-      "image": "",
-      "description": "",
-      "premium": false,
-      "products": []
-    },
-    {
-      "name": "Ray-Ban",
-      "name_kr": "레이벤",
-      "image": "",
-      "description": "세계에서 가장 유명한 선글라스 & 안경 브랜드.",
-      "premium": false,
-      "products": []
-    },
-    {
-      "name": "Carven",
-      "name_kr": "까르뱅",
-      "image": "",
-      "description": "",
-      "premium": false,
-      "products": []
-    },
-    {
-      "name": "Laurence Paul",
-      "name_kr": "로렌스폴",
-      "image": "",
-      "description": "",
-      "premium": false,
-      "products": []
-    },
-    {
-      "name": "MAG & DRAW",
-      "name_kr": "매그앤드로우",
-      "image": "",
-      "description": "",
-      "premium": false,
-      "products": []
-    },
-    {
-      "name": "STEELBAUM",
-      "name_kr": "스틸바움",
-      "image": "",
-      "description": "",
-      "premium": false,
-      "products": []
-    },
-    {
-      "name": "Click Clak",
-      "name_kr": "클릭클락",
-      "image": "",
-      "description": "",
-      "premium": false,
-      "products": []
-    },
-    {
-      "name": "Stéfan Christian",
-      "name_kr": "스테판 크리스티앙",
-      "image": "",
-      "description": "",
-      "premium": false,
-      "products": []
-    },
-    {
-      "name": "기타 브랜드",
-      "name_kr": "More Brands",
-      "image": "",
-      "description": "이 외에도 다양한 브랜드를 취급합니다. 매장에 문의해 주세요.",
-      "premium": false,
-      "products": []
-    }
+    {"name": "LINDBERG", "name_kr": "린드버그", "image": "", "description": "덴마크 프리미엄 안경 브랜드. 가볍고 유연한 티타늄 프레임으로 유명합니다.", "premium": true, "products": []},
+    {"name": "Gentle Monster", "name_kr": "젠틀몬스터", "image": "", "description": "한국 대표 디자이너 아이웨어 브랜드. 독창적인 디자인과 트렌디한 스타일.", "premium": true, "products": []},
+    {"name": "Silhouette", "name_kr": "실루엣", "image": "", "description": "오스트리아 명품 안경. 세계에서 가장 가벼운 안경을 만듭니다.", "premium": true, "products": []},
+    {"name": "Tom Ford", "name_kr": "톰포드", "image": "", "description": "럭셔리 패션 하우스의 클래식하고 세련된 아이웨어.", "premium": true, "products": []},
+    {"name": "GUCCI", "name_kr": "구찌", "image": "", "description": "이탈리아 럭셔리 브랜드의 아이코닉한 안경 컬렉션.", "premium": true, "products": []},
+    {"name": "Saint Laurent", "name_kr": "입 생 로랑", "image": "", "description": "파리 하이패션의 세련되고 모던한 아이웨어.", "premium": true, "products": []},
+    {"name": "MOSCOT", "name_kr": "모스콧", "image": "", "description": "뉴욕 100년 전통의 클래식 아이웨어 브랜드.", "premium": true, "products": []},
+    {"name": "Porsche Design", "name_kr": "포르쉐 디자인", "image": "", "description": "독일 엔지니어링의 정밀함이 담긴 프리미엄 안경.", "premium": true, "products": []},
+    {"name": "OMAS Design", "name_kr": "오마스 디자인", "image": "", "description": "", "premium": false, "products": []},
+    {"name": "TART", "name_kr": "타르트", "image": "", "description": "", "premium": false, "products": []},
+    {"name": "DIGNA", "name_kr": "디그나", "image": "", "description": "", "premium": false, "products": []},
+    {"name": "VAGUE", "name_kr": "바그", "image": "", "description": "", "premium": false, "products": []},
+    {"name": "RIM ROCK", "name_kr": "림락", "image": "", "description": "", "premium": false, "products": []},
+    {"name": "RETRO", "name_kr": "레트로", "image": "", "description": "", "premium": false, "products": []},
+    {"name": "Ray-Ban", "name_kr": "레이벤", "image": "", "description": "세계에서 가장 유명한 선글라스 & 안경 브랜드.", "premium": false, "products": []},
+    {"name": "Carven", "name_kr": "까르뱅", "image": "", "description": "", "premium": false, "products": []},
+    {"name": "Laurence Paul", "name_kr": "로렌스폴", "image": "", "description": "", "premium": false, "products": []},
+    {"name": "MAG & DRAW", "name_kr": "매그앤드로우", "image": "", "description": "", "premium": false, "products": []},
+    {"name": "STEELBAUM", "name_kr": "스틸바움", "image": "", "description": "", "premium": false, "products": []},
+    {"name": "Click Clak", "name_kr": "클릭클락", "image": "", "description": "", "premium": false, "products": []},
+    {"name": "Stéfan Christian", "name_kr": "스테판 크리스티앙", "image": "", "description": "", "premium": false, "products": []},
+    {"name": "기타 브랜드", "name_kr": "More Brands", "image": "", "description": "이 외에도 다양한 브랜드를 취급합니다. 매장에 문의해 주세요.", "premium": false, "products": []}
   ]
 }

@@ -2,8 +2,8 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
+media_folder: "images/common"
+public_folder: "/images/common"
 
 locale: 'ko'
 
@@ -14,6 +14,8 @@ collections:
       - name: "glasses"
         label: "👓 안경 브랜드"
         file: "data/glasses.json"
+        media_folder: "/images/glasses"
+        public_folder: "/images/glasses"
         fields:
           - name: "brands"
             label: "브랜드 목록"
@@ -23,7 +25,7 @@ collections:
             fields:
               - {name: "name", label: "브랜드명 (영문)", widget: "string", hint: "예: LINDBERG"}
               - {name: "name_kr", label: "브랜드명 (한글)", widget: "string", hint: "예: 린드버그"}
-              - {name: "image", label: "브랜드 이미지", widget: "image", required: false, hint: "브랜드 대표 이미지 (정사각형 권장)"}
+              - {name: "image", label: "브랜드 대표 이미지", widget: "image", required: false, hint: "브랜드 대표 이미지 (정사각형 권장)"}
               - {name: "description", label: "설명", widget: "text", required: false, hint: "브랜드 소개 문구"}
               - {name: "premium", label: "프리미엄 브랜드", widget: "boolean", default: false, hint: "ON이면 검은 배경으로 강조 표시"}
               - name: "products"
@@ -40,6 +42,8 @@ collections:
       - name: "lens"
         label: "👁️ 렌즈 브랜드"
         file: "data/lens.json"
+        media_folder: "/images/lens"
+        public_folder: "/images/lens"
         fields:
           - name: "brands"
             label: "브랜드 목록"
@@ -49,7 +53,7 @@ collections:
             fields:
               - {name: "name", label: "브랜드명 (영문)", widget: "string", hint: "예: Acuvue"}
               - {name: "name_kr", label: "브랜드명 (한글)", widget: "string", hint: "예: 아큐브"}
-              - {name: "image", label: "브랜드 이미지", widget: "image", required: false}
+              - {name: "image", label: "브랜드 대표 이미지", widget: "image", required: false}
               - {name: "description", label: "설명", widget: "text", required: false, hint: "브랜드 소개 문구"}
               - name: "products"
                 label: "제품 목록"

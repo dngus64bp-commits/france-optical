@@ -26,6 +26,16 @@ collections:
               - {name: "image", label: "브랜드 이미지", widget: "image", required: false, hint: "브랜드 대표 이미지 (정사각형 권장)"}
               - {name: "description", label: "설명", widget: "text", required: false, hint: "브랜드 소개 문구"}
               - {name: "premium", label: "프리미엄 브랜드", widget: "boolean", default: false, hint: "ON이면 검은 배경으로 강조 표시"}
+              - name: "products"
+                label: "제품 목록"
+                widget: "list"
+                required: false
+                summary: "{{fields.product_name}}"
+                fields:
+                  - {name: "product_name", label: "제품명", widget: "string"}
+                  - {name: "product_image", label: "제품 이미지", widget: "image", required: false}
+                  - {name: "product_price", label: "가격", widget: "string", required: false, hint: "예: 350,000원"}
+                  - {name: "product_desc", label: "제품 설명", widget: "string", required: false}
 
       - name: "lens"
         label: "👁️ 렌즈 브랜드"
@@ -42,7 +52,12 @@ collections:
               - {name: "image", label: "브랜드 이미지", widget: "image", required: false}
               - {name: "description", label: "설명", widget: "text", required: false, hint: "브랜드 소개 문구"}
               - name: "products"
-                label: "대표 제품"
+                label: "제품 목록"
                 widget: "list"
                 required: false
-                field: {name: "product", label: "제품명", widget: "string"}
+                summary: "{{fields.product_name}}"
+                fields:
+                  - {name: "product_name", label: "제품명", widget: "string"}
+                  - {name: "product_image", label: "제품 이미지", widget: "image", required: false}
+                  - {name: "product_price", label: "가격", widget: "string", required: false, hint: "예: 30,000원"}
+                  - {name: "product_desc", label: "제품 설명", widget: "string", required: false}

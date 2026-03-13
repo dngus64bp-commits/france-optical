@@ -8,16 +8,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <style>
 .lens-grid {
   display: grid; grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem; max-width: 900px; margin: 0 auto;
 }
-
 .lens-card {
   background: var(--white); border: 1px solid var(--beige);
   border-radius: 20px; overflow: hidden;
-  transition: all 0.4s; position: relative;
+  transition: all 0.4s; position: relative; cursor: pointer;
 }
 .lens-card::before {
   content: ''; position: absolute; top:0; left:0; right:0;
@@ -33,34 +33,74 @@
   overflow: hidden; background: var(--cream);
   display: flex; align-items: center; justify-content: center;
 }
-.lens-img img {
-  width: 100%; height: 100%; object-fit: cover;
-  transition: transform 0.5s;
-}
+.lens-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
 .lens-card:hover .lens-img img { transform: scale(1.05); }
-
 .lens-icon {
   width: 70px; height: 70px; border-radius: 50%;
   background: var(--white); border: 1px solid var(--beige);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.8rem;
+  display: flex; align-items: center; justify-content: center; font-size: 1.8rem;
 }
-
-.lens-info { padding: 1.8rem; }
-
+.lens-info { padding: 1.5rem; text-align: center; }
 .lens-info h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 0.2rem; }
-.lens-info .brand-kr { font-size: 0.85rem; color: var(--warm-gold); margin-bottom: 0.8rem; font-weight: 500; }
-.lens-info p { font-size: 0.85rem; color: var(--text-light); line-height: 1.8; }
+.lens-info .brand-kr { font-size: 0.85rem; color: var(--warm-gold); margin-bottom: 0.5rem; font-weight: 500; }
+.lens-info p { font-size: 0.82rem; color: var(--text-light); line-height: 1.7; }
+.lens-view { font-size: 0.75rem; color: var(--warm-gold); margin-top: 0.8rem; letter-spacing: 1px; }
 
-.lens-products {
-  list-style: none; margin-top: 1rem;
-  display: flex; flex-wrap: wrap; gap: 0.5rem;
+/* Modal */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 2000;
+  background: rgba(0,0,0,0.5); backdrop-filter: blur(5px);
+  display: none; align-items: center; justify-content: center; padding: 2rem;
 }
-.lens-products li {
-  padding: 0.4rem 0.9rem; background: var(--cream);
-  border: 1px solid var(--beige); border-radius: 100px;
-  font-size: 0.75rem; color: var(--brown-soft);
+.modal-overlay.active { display: flex; }
+.modal {
+  background: var(--white); border-radius: 20px;
+  max-width: 800px; width: 100%; max-height: 85vh;
+  overflow-y: auto; position: relative; animation: modalIn 0.3s ease;
 }
+@keyframes modalIn { from { opacity:0; transform: scale(0.95) translateY(20px); } to { opacity:1; transform: scale(1) translateY(0); } }
+.modal-close {
+  position: absolute; top: 1rem; right: 1rem;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--cream); border: 1px solid var(--beige);
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; color: var(--brown-soft); transition: all 0.3s; z-index: 10;
+}
+.modal-close:hover { background: var(--charcoal); color: white; }
+.modal-header {
+  padding: 2.5rem 2.5rem 1.5rem; border-bottom: 1px solid var(--beige);
+  display: flex; gap: 1.5rem; align-items: center;
+}
+.modal-brand-img {
+  width: 80px; height: 80px; border-radius: 16px;
+  background: var(--cream); overflow: hidden;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.modal-brand-img img { width: 100%; height: 100%; object-fit: cover; }
+.modal-brand-img .icon { font-size: 2rem; }
+.modal-header-text h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 0.2rem; }
+.modal-header-text .kr { color: var(--warm-gold); font-size: 0.85rem; font-weight: 500; }
+.modal-header-text p { color: var(--text-light); font-size: 0.85rem; margin-top: 0.5rem; line-height: 1.6; }
+.modal-body { padding: 2rem 2.5rem 2.5rem; }
+.modal-body h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 1.2rem; }
+
+.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.product-card {
+  background: var(--cream); border: 1px solid var(--beige);
+  border-radius: 12px; overflow: hidden; transition: all 0.3s;
+}
+.product-card:hover { border-color: var(--gold-pale); box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+.product-card-img {
+  width: 100%; aspect-ratio: 1; background: var(--warm-white);
+  overflow: hidden; display: flex; align-items: center; justify-content: center;
+}
+.product-card-img img { width: 100%; height: 100%; object-fit: cover; }
+.product-card-img .placeholder { font-size: 2rem; opacity: 0.3; }
+.product-card-info { padding: 0.8rem; text-align: center; }
+.product-card-info h4 { font-size: 0.82rem; color: var(--charcoal); margin-bottom: 0.2rem; }
+.product-card-info .price { font-size: 0.78rem; color: var(--warm-gold); font-weight: 500; }
+.product-card-info .desc { font-size: 0.72rem; color: var(--text-light); margin-top: 0.2rem; }
+.no-products { text-align: center; padding: 3rem; color: var(--text-light); font-size: 0.9rem; line-height: 1.8; }
 
 /* Loading */
 .loading-grid {
@@ -74,19 +114,22 @@
 }
 @keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
 
-/* Info */
 .lens-info-section { background: var(--white); }
 .info-box {
   max-width: 700px; margin: 0 auto; padding: 3rem;
-  background: var(--cream); border-radius: 20px; border: 1px solid var(--beige);
-  text-align: center;
+  background: var(--cream); border-radius: 20px; border: 1px solid var(--beige); text-align: center;
 }
 .info-box h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 1rem; }
 .info-box p { color: var(--text-light); line-height: 1.9; font-size: 0.9rem; margin-bottom: 1.5rem; }
 
-@media (max-width:900px) { .lens-grid, .loading-grid { grid-template-columns: 1fr; } }
+@media (max-width:900px) {
+  .lens-grid, .loading-grid { grid-template-columns: 1fr; }
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .modal { margin: 1rem; }
+  .modal-header { padding: 1.5rem; flex-direction: column; text-align: center; }
+  .modal-body { padding: 1.5rem; }
+}
 </style>
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
 <nav class="nav" id="nav">
@@ -124,6 +167,15 @@
   </div>
 </section>
 
+<!-- Modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modal">
+    <button class="modal-close" id="modalClose">✕</button>
+    <div class="modal-header" id="modalHeader"></div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
 <footer class="footer">
   <div class="footer-logo">불란서 안경 콘택트</div>
   <div class="footer-links">
@@ -133,54 +185,98 @@
 </footer>
 
 <script>
+let brandsData = [];
+
 async function loadLens() {
   const grid = document.getElementById('lensGrid');
   const loading = document.getElementById('loadingGrid');
-
   try {
     const res = await fetch('data/lens.json');
     const data = await res.json();
-
+    brandsData = data.brands;
     grid.innerHTML = '';
-    data.brands.forEach(brand => {
+    data.brands.forEach((brand, idx) => {
       const hasImage = brand.image && brand.image.trim() !== '';
       const card = document.createElement('div');
       card.className = 'lens-card reveal';
-
-      const imageHtml = hasImage
-        ? `<div class="lens-img"><img src="${brand.image}" alt="${brand.name}" loading="lazy"></div>`
-        : `<div class="lens-img"><div class="lens-icon">👁️</div></div>`;
-
-      const productsHtml = brand.products && brand.products.length
-        ? `<ul class="lens-products">${brand.products.map(p => `<li>${p}</li>`).join('')}</ul>`
-        : '';
-
+      card.dataset.index = idx;
       card.innerHTML = `
-        ${imageHtml}
+        <div class="lens-img">
+          ${hasImage ? `<img src="${brand.image}" alt="${brand.name}" loading="lazy">` : `<div class="lens-icon">👁️</div>`}
+        </div>
         <div class="lens-info">
           <h3>${brand.name}</h3>
           <div class="brand-kr">${brand.name_kr}</div>
           ${brand.description ? `<p>${brand.description}</p>` : ''}
-          ${productsHtml}
+          <div class="lens-view">제품 보기 →</div>
         </div>
       `;
-
+      card.addEventListener('click', () => openModal(idx));
       grid.appendChild(card);
     });
-
     loading.style.display = 'none';
     grid.style.display = 'grid';
-
     grid.querySelectorAll('.reveal').forEach(el =>
-      new IntersectionObserver(e => e.forEach(el => {
-        if (el.isIntersecting) el.target.classList.add('visible');
-      }), { threshold: 0.1 }).observe(el)
+      new IntersectionObserver(e => e.forEach(el => { if (el.isIntersecting) el.target.classList.add('visible'); }), { threshold: 0.1 }).observe(el)
     );
-
   } catch (err) {
     console.error('데이터 로드 실패:', err);
-    loading.innerHTML = '<p style="text-align:center;color:var(--text-light);grid-column:1/-1;padding:3rem;">데이터를 불러오는 중 오류가 발생했습니다.</p>';
   }
+}
+
+function openModal(idx) {
+  const brand = brandsData[idx];
+  const hasImage = brand.image && brand.image.trim() !== '';
+  const header = document.getElementById('modalHeader');
+  const body = document.getElementById('modalBody');
+
+  header.innerHTML = `
+    <div class="modal-brand-img">
+      ${hasImage ? `<img src="${brand.image}" alt="${brand.name}">` : `<span class="icon">👁️</span>`}
+    </div>
+    <div class="modal-header-text">
+      <h2>${brand.name}</h2>
+      <span class="kr">${brand.name_kr}</span>
+      ${brand.description ? `<p>${brand.description}</p>` : ''}
+    </div>
+  `;
+
+  const products = brand.products || [];
+  if (products.length > 0) {
+    body.innerHTML = `
+      <h3>제품 목록</h3>
+      <div class="product-grid">
+        ${products.map(p => `
+          <div class="product-card">
+            <div class="product-card-img">
+              ${p.product_image ? `<img src="${p.product_image}" alt="${p.product_name}" loading="lazy">` : `<span class="placeholder">👁️</span>`}
+            </div>
+            <div class="product-card-info">
+              <h4>${p.product_name}</h4>
+              ${p.product_price ? `<span class="price">${p.product_price}</span>` : ''}
+              ${p.product_desc ? `<span class="desc">${p.product_desc}</span>` : ''}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  } else {
+    body.innerHTML = `<div class="no-products">아직 등록된 제품이 없습니다.<br>매장을 방문하시면 다양한 제품을 직접 확인하실 수 있습니다.</div>`;
+  }
+
+  document.getElementById('modalOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+document.getElementById('modalClose').addEventListener('click', closeModal);
+document.getElementById('modalOverlay').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+});
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('active');
+  document.body.style.overflow = '';
 }
 
 loadLens();

@@ -123,7 +123,6 @@
   .hero-actions { flex-direction: column; align-items: center; }
 }
 </style>
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
 
@@ -215,6 +214,5 @@ links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.clas
 const reveals=document.querySelectorAll('.reveal');
 new IntersectionObserver(e=>e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')}),{threshold:0.12}).observe&&reveals.forEach(el=>new IntersectionObserver(e=>e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')}),{threshold:0.12}).observe(el));
 </script>
-<script>if(window.netlifyIdentity){window.netlifyIdentity.on("init",u=>{if(!u){window.netlifyIdentity.on("login",()=>{document.location.href="/admin/"})}})}</script>
 </body>
 </html>

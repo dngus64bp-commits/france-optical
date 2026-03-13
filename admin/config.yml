@@ -1,9 +1,10 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: dngus64bp-commits/france-optical
   branch: main
 
 media_folder: "images/common"
-public_folder: "/images/common"
+public_folder: "images/common"
 
 locale: 'ko'
 
@@ -14,8 +15,8 @@ collections:
       - name: "glasses"
         label: "👓 안경 브랜드"
         file: "data/glasses.json"
-        media_folder: "/images/glasses"
-        public_folder: "/images/glasses"
+        media_folder: "images/glasses"
+        public_folder: "images/glasses"
         fields:
           - name: "brands"
             label: "브랜드 목록"
@@ -42,8 +43,8 @@ collections:
       - name: "lens"
         label: "👁️ 렌즈 브랜드"
         file: "data/lens.json"
-        media_folder: "/images/lens"
-        public_folder: "/images/lens"
+        media_folder: "images/lens"
+        public_folder: "images/lens"
         fields:
           - name: "brands"
             label: "브랜드 목록"

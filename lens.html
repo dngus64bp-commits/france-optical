@@ -8,7 +8,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <style>
 .lens-grid {
   display: grid; grid-template-columns: repeat(2, 1fr);
@@ -286,6 +285,5 @@ toggle.addEventListener('click',()=>links.classList.toggle('open'));
 links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
 document.querySelectorAll('.reveal').forEach(el=>new IntersectionObserver(e=>e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')}),{threshold:0.12}).observe(el));
 </script>
-<script>if(window.netlifyIdentity){window.netlifyIdentity.on("init",u=>{if(!u){window.netlifyIdentity.on("login",()=>{document.location.href="/admin/"})}})}</script>
 </body>
 </html>

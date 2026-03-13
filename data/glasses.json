@@ -18,10 +18,17 @@
     {
       "name": "Gentle Monster",
       "name_kr": "젠틀몬스터",
-      "image": "",
+      "image": "/images/glasses/kakaotalk_20260313_012300927_01.png",
       "description": "한국 대표 디자이너 아이웨어 브랜드. 독창적인 디자인과 트렌디한 스타일.",
       "premium": true,
-      "products": []
+      "products": [
+        {
+          "product_name": "미스타곽",
+          "product_price": "5억",
+          "product_image": "/images/glasses/kakaotalk_20260313_012330119.jpg",
+          "product_desc": "튼튼데쓰"
+        }
+      ]
     },
     {
       "name": "Silhouette",

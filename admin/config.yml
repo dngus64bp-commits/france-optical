@@ -2,7 +2,6 @@ backend:
   name: github
   repo: dngus64bp-commits/france-optical
   branch: main
-  base_url: https://sveltia-cms-auth.dngus64bp.workers.dev
 
 media_folder: "images/common"
 public_folder: "images/common"
@@ -11,59 +10,59 @@ locale: 'ko'
 
 collections:
   - name: "site_data"
-    label: "Contents"
+    label: "📦 콘텐츠 관리"
     files:
       - name: "glasses"
-        label: "Glasses Brands"
+        label: "👓 안경 브랜드"
         file: "data/glasses.json"
         media_folder: "images/glasses"
         public_folder: "images/glasses"
         fields:
           - name: "brands"
-            label: "Brands"
-            label_singular: "Brand"
+            label: "브랜드 목록"
+            label_singular: "브랜드"
             widget: "list"
             summary: "{{fields.name}} ({{fields.name_kr}})"
             fields:
-              - {name: "name", label: "Brand Name (EN)", widget: "string"}
-              - {name: "name_kr", label: "Brand Name (KR)", widget: "string"}
-              - {name: "image", label: "Brand Image", widget: "image", required: false}
-              - {name: "description", label: "Description", widget: "text", required: false}
-              - {name: "premium", label: "Premium", widget: "boolean", default: false}
+              - {name: "name", label: "브랜드명 (영문)", widget: "string", hint: "예: LINDBERG"}
+              - {name: "name_kr", label: "브랜드명 (한글)", widget: "string", hint: "예: 린드버그"}
+              - {name: "image", label: "브랜드 대표 이미지", widget: "image", required: false, hint: "브랜드 대표 이미지 (정사각형 권장)"}
+              - {name: "description", label: "설명", widget: "text", required: false, hint: "브랜드 소개 문구"}
+              - {name: "premium", label: "프리미엄 브랜드", widget: "boolean", default: false, hint: "ON이면 검은 배경으로 강조 표시"}
               - name: "products"
-                label: "Products"
+                label: "제품 목록"
                 widget: "list"
                 required: false
                 summary: "{{fields.product_name}}"
                 fields:
-                  - {name: "product_name", label: "Product Name", widget: "string"}
-                  - {name: "product_image", label: "Product Image", widget: "image", required: false}
-                  - {name: "product_price", label: "Price", widget: "string", required: false}
-                  - {name: "product_desc", label: "Product Description", widget: "string", required: false}
+                  - {name: "product_name", label: "제품명", widget: "string"}
+                  - {name: "product_image", label: "제품 이미지", widget: "image", required: false}
+                  - {name: "product_price", label: "가격", widget: "string", required: false, hint: "예: 350,000원"}
+                  - {name: "product_desc", label: "제품 설명", widget: "string", required: false}
 
       - name: "lens"
-        label: "Lens Brands"
+        label: "👁️ 렌즈 브랜드"
         file: "data/lens.json"
         media_folder: "images/lens"
         public_folder: "images/lens"
         fields:
           - name: "brands"
-            label: "Brands"
-            label_singular: "Brand"
+            label: "브랜드 목록"
+            label_singular: "브랜드"
             widget: "list"
             summary: "{{fields.name}} ({{fields.name_kr}})"
             fields:
-              - {name: "name", label: "Brand Name (EN)", widget: "string"}
-              - {name: "name_kr", label: "Brand Name (KR)", widget: "string"}
-              - {name: "image", label: "Brand Image", widget: "image", required: false}
-              - {name: "description", label: "Description", widget: "text", required: false}
+              - {name: "name", label: "브랜드명 (영문)", widget: "string", hint: "예: Acuvue"}
+              - {name: "name_kr", label: "브랜드명 (한글)", widget: "string", hint: "예: 아큐브"}
+              - {name: "image", label: "브랜드 대표 이미지", widget: "image", required: false}
+              - {name: "description", label: "설명", widget: "text", required: false, hint: "브랜드 소개 문구"}
               - name: "products"
-                label: "Products"
+                label: "제품 목록"
                 widget: "list"
                 required: false
                 summary: "{{fields.product_name}}"
                 fields:
-                  - {name: "product_name", label: "Product Name", widget: "string"}
-                  - {name: "product_image", label: "Product Image", widget: "image", required: false}
-                  - {name: "product_price", label: "Price", widget: "string", required: false}
-                  - {name: "product_desc", label: "Product Description", widget: "string", required: false}
+                  - {name: "product_name", label: "제품명", widget: "string"}
+                  - {name: "product_image", label: "제품 이미지", widget: "image", required: false}
+                  - {name: "product_price", label: "가격", widget: "string", required: false, hint: "예: 30,000원"}
+                  - {name: "product_desc", label: "제품 설명", widget: "string", required: false}

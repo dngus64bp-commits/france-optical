@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="naver-site-verification" content="35573eab2fd7395dd0b798edd6df59d03e51b77e" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="불란서 안경 콘택트 소개 - 1986년 창립, 40년 전통의 강릉 안경원. 3년~20년 경력 전문 안경사가 정밀 검안과 맞춤 안경을 제작합니다.">
+<meta name="keywords" content="강릉안경원소개, 불란서안경역사, 강릉안경전문점, 강릉시력검사, 강릉맞춤안경">
+<meta property="og:title" content="소개 | 불란서 안경 콘택트">
+<meta property="og:description" content="1986년 창립, 40년 전통. 경력 전문 안경사의 정밀 검안과 맞춤 안경.">
 <title>소개 | 불란서 안경 콘택트</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -65,7 +69,25 @@
   .about-grid { grid-template-columns: 1fr; }
   .values-grid { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr; }
 }
+
+/* Gallery */
+.gallery { background: var(--white); }
+.gallery-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem; max-width: 1000px; margin: 0 auto;
+}
+.gallery-item {
+  border-radius: 16px; overflow: hidden;
+  aspect-ratio: 4/3; transition: all 0.4s;
+}
+.gallery-item img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.5s;
+}
+.gallery-item:hover img { transform: scale(1.05); }
+.gallery-item:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 </style>
 </head>
 <body>
@@ -137,6 +159,19 @@
       가족 같은 분위기에서 고객을 맞이하고 있습니다.<br>
       40년 전통의 신뢰, 불란서 안경 콘택트가 여러분의 눈을 지켜드리겠습니다.
     </p>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="section-header reveal">
+    <p class="section-label">Our Store</p>
+    <h2 class="section-title">매장 둘러보기</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item reveal"><img src="images/store.png" alt="불란서 안경 콘택트 외관" loading="lazy"></div>
+    <div class="gallery-item reveal"><img src="images/store-interior1.jpg" alt="매장 내부 - 젠틀몬스터 진열대" loading="lazy"></div>
+    <div class="gallery-item reveal"><img src="images/store-interior2.jpg" alt="매장 내부 - 안경 쇼룸" loading="lazy"></div>
   </div>
 </section>
 

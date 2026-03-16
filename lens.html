@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="naver-site-verification" content="35573eab2fd7395dd0b798edd6df59d03e51b77e" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="불란서 안경 콘택트 콘택트렌즈 - 아큐브, 알콘, 인터로조 등 프리미엄 콘택트렌즈. 전문 안경사의 1:1 맞춤 렌즈 상담.">
+<meta name="keywords" content="강릉콘택트렌즈, 강릉아큐브, 강릉알콘, 강릉렌즈, 강릉소프트렌즈, 강릉컬러렌즈">
+<meta property="og:title" content="콘택트렌즈 | 불란서 안경 콘택트">
+<meta property="og:description" content="아큐브, 알콘, 인터로조 등 프리미엄 콘택트렌즈. 전문 안경사 1:1 맞춤 상담.">
 <title>콘택트렌즈 | 불란서 안경 콘택트</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -186,6 +190,11 @@
 <script>
 let brandsData = [];
 
+function fixPath(path) {
+  if (!path) return '';
+  return path.replace(/^\//, '');
+}
+
 async function loadLens() {
   const grid = document.getElementById('lensGrid');
   const loading = document.getElementById('loadingGrid');
@@ -195,13 +204,14 @@ async function loadLens() {
     brandsData = data.brands;
     grid.innerHTML = '';
     data.brands.forEach((brand, idx) => {
-      const hasImage = brand.image && brand.image.trim() !== '';
+      const img = fixPath(brand.image);
+      const hasImage = img !== '';
       const card = document.createElement('div');
       card.className = 'lens-card reveal';
       card.dataset.index = idx;
       card.innerHTML = `
         <div class="lens-img">
-          ${hasImage ? `<img src="${brand.image}" alt="${brand.name}" loading="lazy">` : `<div class="lens-icon">👁️</div>`}
+          ${hasImage ? `<img src="${img}" alt="${brand.name}" loading="lazy">` : `<div class="lens-icon">👁️</div>`}
         </div>
         <div class="lens-info">
           <h3>${brand.name}</h3>
@@ -225,13 +235,14 @@ async function loadLens() {
 
 function openModal(idx) {
   const brand = brandsData[idx];
-  const hasImage = brand.image && brand.image.trim() !== '';
+  const img = fixPath(brand.image);
+  const hasImage = img !== '';
   const header = document.getElementById('modalHeader');
   const body = document.getElementById('modalBody');
 
   header.innerHTML = `
     <div class="modal-brand-img">
-      ${hasImage ? `<img src="${brand.image}" alt="${brand.name}">` : `<span class="icon">👁️</span>`}
+      ${hasImage ? `<img src="${img}" alt="${brand.name}">` : `<span class="icon">👁️</span>`}
     </div>
     <div class="modal-header-text">
       <h2>${brand.name}</h2>
@@ -245,10 +256,12 @@ function openModal(idx) {
     body.innerHTML = `
       <h3>제품 목록</h3>
       <div class="product-grid">
-        ${products.map(p => `
+        ${products.map(p => {
+          const pImg = fixPath(p.product_image);
+          return `
           <div class="product-card">
             <div class="product-card-img">
-              ${p.product_image ? `<img src="${p.product_image}" alt="${p.product_name}" loading="lazy">` : `<span class="placeholder">👁️</span>`}
+              ${pImg ? `<img src="${pImg}" alt="${p.product_name}" loading="lazy">` : `<span class="placeholder">👁️</span>`}
             </div>
             <div class="product-card-info">
               <h4>${p.product_name}</h4>
@@ -256,7 +269,7 @@ function openModal(idx) {
               ${p.product_desc ? `<span class="desc">${p.product_desc}</span>` : ''}
             </div>
           </div>
-        `).join('')}
+        `}).join('')}
       </div>
     `;
   } else {

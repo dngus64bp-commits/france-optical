@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="naver-site-verification" content="35573eab2fd7395dd0b798edd6df59d03e51b77e" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="불란서 안경 콘택트 안경 브랜드 - 린드버그, 젠틀몬스터, 실루엣, 톰포드, 구찌, 모스콧 등 22개 프리미엄 안경 브랜드.">
+<meta name="keywords" content="강릉린드버그, 강릉젠틀몬스터, 강릉실루엣, 강릉톰포드, 강릉구찌안경, 강릉명품안경, 강릉안경브랜드">
+<meta property="og:title" content="안경 브랜드 | 불란서 안경 콘택트">
+<meta property="og:description" content="린드버그, 젠틀몬스터, 실루엣 등 22개 프리미엄 안경 브랜드를 만나보세요.">
 <title>안경 브랜드 | 불란서 안경 콘택트</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Sans+KR:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -203,6 +207,12 @@
 <script>
 let brandsData = [];
 
+// 이미지 경로 보정 (CMS에서 /images/... 로 저장될 수 있음)
+function fixPath(path) {
+  if (!path) return '';
+  return path.replace(/^\//, ''); // 맨 앞 / 제거
+}
+
 async function loadBrands() {
   const grid = document.getElementById('brandGrid');
   const loading = document.getElementById('loadingGrid');
@@ -212,13 +222,14 @@ async function loadBrands() {
     brandsData = data.brands;
     grid.innerHTML = '';
     data.brands.forEach((brand, idx) => {
-      const hasImage = brand.image && brand.image.trim() !== '';
+      const img = fixPath(brand.image);
+      const hasImage = img !== '';
       const card = document.createElement('div');
       card.className = `brand-card${brand.premium ? ' premium' : ''} reveal`;
       card.dataset.index = idx;
       card.innerHTML = `
         <div class="brand-img">
-          ${hasImage ? `<img src="${brand.image}" alt="${brand.name}" loading="lazy">` : `<div class="brand-icon-wrap">👓</div>`}
+          ${hasImage ? `<img src="${img}" alt="${brand.name}" loading="lazy">` : `<div class="brand-icon-wrap">👓</div>`}
         </div>
         <div class="brand-info">
           <h3>${brand.name}</h3>
@@ -228,6 +239,7 @@ async function loadBrands() {
       `;
       card.addEventListener('click', () => openModal(idx));
       grid.appendChild(card);
+    });
     });
     loading.style.display = 'none';
     grid.style.display = 'grid';
@@ -242,14 +254,15 @@ async function loadBrands() {
 
 function openModal(idx) {
   const brand = brandsData[idx];
-  const hasImage = brand.image && brand.image.trim() !== '';
+  const img = fixPath(brand.image);
+  const hasImage = img !== '';
   const overlay = document.getElementById('modalOverlay');
   const header = document.getElementById('modalHeader');
   const body = document.getElementById('modalBody');
 
   header.innerHTML = `
     <div class="modal-brand-img">
-      ${hasImage ? `<img src="${brand.image}" alt="${brand.name}">` : `<span class="icon">👓</span>`}
+      ${hasImage ? `<img src="${img}" alt="${brand.name}">` : `<span class="icon">👓</span>`}
     </div>
     <div class="modal-header-text">
       <h2>${brand.name}</h2>
@@ -263,10 +276,12 @@ function openModal(idx) {
     body.innerHTML = `
       <h3>제품 목록</h3>
       <div class="product-grid">
-        ${products.map(p => `
+        ${products.map(p => {
+          const pImg = fixPath(p.product_image);
+          return `
           <div class="product-card">
             <div class="product-card-img">
-              ${p.product_image ? `<img src="${p.product_image}" alt="${p.product_name}" loading="lazy">` : `<span class="placeholder">👓</span>`}
+              ${pImg ? `<img src="${pImg}" alt="${p.product_name}" loading="lazy">` : `<span class="placeholder">👓</span>`}
             </div>
             <div class="product-card-info">
               <h4>${p.product_name}</h4>
@@ -274,7 +289,7 @@ function openModal(idx) {
               ${p.product_desc ? `<span class="desc">${p.product_desc}</span>` : ''}
             </div>
           </div>
-        `).join('')}
+        `}).join('')}
       </div>
     `;
   } else {

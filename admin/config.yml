@@ -2,7 +2,8 @@ backend:
   name: github
   repo: dngus64bp-commits/france-optical
   branch: main
-  base_url: https://bullanseo.netlify.app
+  auth_type: implicit
+  app_id: Ov23liOz5gknNgRcu083
 
 media_folder: "images/common"
 public_folder: "images/common"

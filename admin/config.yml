@@ -2,6 +2,7 @@ backend:
   name: github
   repo: dngus64bp-commits/france-optical
   branch: main
+  base_url: https://sveltia-cms-auth.dngus64bp.workers.dev
 
 media_folder: "images/common"
 public_folder: "images/common"

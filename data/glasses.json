@@ -27,7 +27,7 @@
     {
       "name": "Tom Ford",
       "name_kr": "톰포드",
-      "image": "",
+      "image": "images/glasses/tom-ford-logo-png_seeklogo-383930.png",
       "description": "럭셔리 패션 하우스의 클래식하고 세련된 아이웨어.",
       "premium": true,
       "products": []
@@ -35,7 +35,7 @@
     {
       "name": "GUCCI",
       "name_kr": "구찌",
-      "image": "",
+      "image": "images/glasses/gucci-logo-png_seeklogo-64070.png",
       "description": "이탈리아 럭셔리 브랜드의 아이코닉한 안경 컬렉션.",
       "premium": true,
       "products": []
@@ -51,7 +51,7 @@
     {
       "name": "MOSCOT",
       "name_kr": "모스콧",
-      "image": "",
+      "image": "images/glasses/moscot-logo-png_seeklogo-497314.png",
       "description": "뉴욕 100년 전통의 클래식 아이웨어 브랜드.",
       "premium": true,
       "products": []
@@ -59,7 +59,7 @@
     {
       "name": "Porsche Design",
       "name_kr": "포르쉐 디자인",
-      "image": "",
+      "image": "images/glasses/porsche-design-logo-png_seeklogo-322689.png",
       "description": "독일 엔지니어링의 정밀함이 담긴 프리미엄 안경.",
       "premium": true,
       "products": []

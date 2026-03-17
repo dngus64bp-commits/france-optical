@@ -6,7 +6,15 @@
       "image": "/images/common/lindberg-logo-png_seeklogo-360798.png",
       "description": "덴마크 프리미엄 안경 브랜드. 가볍고 유연한 티타늄 프레임으로 유명합니다.",
       "premium": true,
-      "products": []
+      "products": [
+        {
+          "product_name": "랜즈선택",
+          "product_image": "/images/common/KakaoTalk_20260313_012349267_03.jpg",
+          "is_new": true,
+          "is_sale": true,
+          "product_desc": "선택가능합니다."
+        }
+      ]
     },
     {
       "name": "Gentle Monster",

@@ -13,6 +13,13 @@
           "is_new": true,
           "is_sale": true,
           "product_desc": "선택가능합니다."
+        },
+        {
+          "product_name": "123",
+          "product_image": "/images/common/KakaoTalk_20260313_012349267_01.jpg",
+          "is_new": false,
+          "is_sale": true,
+          "product_desc": "ㅍㅁㅇㄿㅁㄷㄻㄷㄴㄹ"
         }
       ]
     },

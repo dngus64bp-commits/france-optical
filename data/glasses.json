@@ -3,7 +3,7 @@
     {
       "name": "LINDBERG",
       "name_kr": "린드버그",
-      "image": "images/glasses/gentle-monster-logo-png_seeklogo-487277.png",
+      "image": "/images/common/lindberg-seeklogo.png",
       "description": "덴마크 프리미엄 안경 브랜드. 가볍고 유연한 티타늄 프레임으로 유명합니다.",
       "premium": true,
       "products": []
@@ -11,7 +11,7 @@
     {
       "name": "Gentle Monster",
       "name_kr": "젠틀몬스터",
-      "image": "/images/common/KakaoTalk_20260313_012300927_01.png",
+      "image": "/images/common/gentle-monster-logo-png_seeklogo-487277.png",
       "description": "한국 대표 디자이너 아이웨어 브랜드. 독창적인 디자인과 트렌디한 스타일.",
       "premium": true,
       "products": []

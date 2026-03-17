@@ -13,7 +13,7 @@
       "name_kr": "젠틀몬스터",
       "image": "/images/common/KakaoTalk_20260313_012300927_01.png",
       "description": "한국 대표 디자이너 아이웨어 브랜드. 독창적인 디자인과 트렌디한 스타일.",
-      "premium": false,
+      "premium": true,
       "products": []
     },
     {

@@ -35,7 +35,8 @@ collections:
                 fields:
                   - {name: "product_name", label: "Product Name", widget: "string"}
                   - {name: "product_image", label: "Product Image", widget: "image", required: false}
-                  - {name: "product_price", label: "Price", widget: "string", required: false}
+                  - {name: "is_new", label: "NEW", widget: "boolean", default: false}
+                  - {name: "is_sale", label: "SALE", widget: "boolean", default: false}
                   - {name: "product_desc", label: "Product Description", widget: "string", required: false}
 
       - name: "lens"
@@ -60,5 +61,6 @@ collections:
                 fields:
                   - {name: "product_name", label: "Product Name", widget: "string"}
                   - {name: "product_image", label: "Product Image", widget: "image", required: false}
-                  - {name: "product_price", label: "Price", widget: "string", required: false}
+                  - {name: "is_new", label: "NEW", widget: "boolean", default: false}
+                  - {name: "is_sale", label: "SALE", widget: "boolean", default: false}
                   - {name: "product_desc", label: "Product Description", widget: "string", required: false}

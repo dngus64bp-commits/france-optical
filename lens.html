@@ -103,6 +103,8 @@
 .product-card-info h4 { font-size: 0.82rem; color: var(--charcoal); margin-bottom: 0.2rem; }
 .product-card-info .price { font-size: 0.78rem; color: var(--warm-gold); font-weight: 500; }
 .product-card-info .desc { font-size: 0.72rem; color: var(--text-light); margin-top: 0.2rem; }
+.product-link { display: block; font-size: 0.7rem; color: var(--warm-gold); margin-top: 0.4rem; text-decoration: none; }
+.product-link:hover { color: var(--charcoal); }
 .product-badges { display: flex; gap: 0.3rem; justify-content: center; margin-bottom: 0.3rem; }
 .badge-new {
   display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px;
@@ -268,15 +270,17 @@ function openModal(idx) {
         ${products.map(p => {
           const pImg = fixPath(p.product_image);
           const badges = `${p.is_new ? '<span class="badge-new">NEW</span>' : ''}${p.is_sale ? '<span class="badge-sale">SALE</span>' : ''}`;
+          const desc = p.product_desc ? p.product_desc.replace(/\n/g, '<br>') : '';
           return `
-          <div class="product-card">
+          <div class="product-card"${p.product_url ? ` onclick="window.open('${p.product_url}','_blank')" style="cursor:pointer;"` : ''}>
             <div class="product-card-img">
               ${pImg ? `<img src="${pImg}" alt="${p.product_name}" loading="lazy">` : `<span class="placeholder">👁️</span>`}
             </div>
             <div class="product-card-info">
               ${badges ? `<div class="product-badges">${badges}</div>` : ''}
               <h4>${p.product_name}</h4>
-              ${p.product_desc ? `<span class="desc">${p.product_desc}</span>` : ''}
+              ${desc ? `<span class="desc">${desc}</span>` : ''}
+              ${p.product_url ? `<a href="${p.product_url}" target="_blank" class="product-link" onclick="event.stopPropagation();">자세히 보기 →</a>` : ''}
             </div>
           </div>
         `}).join('')}

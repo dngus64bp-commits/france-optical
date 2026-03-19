@@ -6,7 +6,15 @@
       "image": "/images/glasses/린드버그/린드버그_로고.png",
       "description": "덴마크 프리미엄 안경 브랜드. 가볍고 유연한 티타늄 프레임으로 유명합니다.",
       "premium": true,
-      "products": []
+      "products": [
+        {
+          "product_name": "BLOK 4251",
+          "product_image": "/images/glasses/린드버그/린드버그_BLOK4251.jpg",
+          "is_new": true,
+          "is_sale": false,
+          "product_desc": "부드러운 인상과 지적인 세련미, 그 어려운 두 마리 토끼를 모두 잡은 모델"
+        }
+      ]
     },
     {
       "name": "Gentle Monster",

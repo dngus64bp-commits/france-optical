@@ -3,37 +3,15 @@
     {
       "name": "LINDBERG",
       "name_kr": "린드버그",
-      "image": "/images/common/lindberg-logo-png_seeklogo-360798.png",
+      "image": "/images/glasses/린드버그/lindberg-logo-png_seeklogo-360798.png",
       "description": "덴마크 프리미엄 안경 브랜드. 가볍고 유연한 티타늄 프레임으로 유명합니다.",
       "premium": true,
-      "products": [
-        {
-          "product_name": "랜즈선택",
-          "product_image": "/images/common/KakaoTalk_20260313_012349267_03.jpg",
-          "is_new": true,
-          "is_sale": true,
-          "product_desc": "선택가능합니다."
-        },
-        {
-          "product_name": "123",
-          "product_image": "/images/common/KakaoTalk_20260313_012349267_01.jpg",
-          "is_new": false,
-          "is_sale": true,
-          "product_desc": "ㅍㅁㅇㄿㅁㄷㄻㄷㄴㄹ"
-        },
-        {
-          "product_name": "1",
-          "product_image": "/images/common/KakaoTalk_20260313_012349267_07.jpg",
-          "is_new": true,
-          "is_sale": false,
-          "product_desc": "3123"
-        }
-      ]
+      "products": []
     },
     {
       "name": "Gentle Monster",
       "name_kr": "젠틀몬스터",
-      "image": "/images/common/gentle-monster-logo-png_seeklogo-487277.png",
+      "image": "/images/glasses/젠틀몬스터/gentle-monster-logo-png_seeklogo-487277.png",
       "description": "한국 대표 디자이너 아이웨어 브랜드. 독창적인 디자인과 트렌디한 스타일.",
       "premium": true,
       "products": []
@@ -41,7 +19,7 @@
     {
       "name": "Silhouette",
       "name_kr": "실루엣",
-      "image": "/images/common/silhouette-logo-png_seeklogo-170318.png",
+      "image": "/images/glasses/실루엣/silhouette-logo-png_seeklogo-170318.png",
       "description": "오스트리아 명품 안경. 세계에서 가장 가벼운 안경을 만듭니다.",
       "premium": true,
       "products": []
@@ -49,7 +27,7 @@
     {
       "name": "Tom Ford",
       "name_kr": "톰포드",
-      "image": "/images/common/tom-ford-logo-png_seeklogo-383930.png",
+      "image": "/images/glasses/톰포드/tom-ford-logo-png_seeklogo-383930.png",
       "description": "럭셔리 패션 하우스의 클래식하고 세련된 아이웨어.",
       "premium": true,
       "products": []
@@ -57,7 +35,7 @@
     {
       "name": "GUCCI",
       "name_kr": "구찌",
-      "image": "/images/common/gucci-logo-png_seeklogo-64070.png",
+      "image": "/images/glasses/구찌/gucci-logo-png_seeklogo-64070.png",
       "description": "이탈리아 럭셔리 브랜드의 아이코닉한 안경 컬렉션.",
       "premium": true,
       "products": []
@@ -65,7 +43,7 @@
     {
       "name": "Saint Laurent",
       "name_kr": "입 생 로랑",
-      "image": "/images/common/yves-saint-laurent-logo-png_seeklogo-197579.png",
+      "image": "/images/glasses/입생로랑/yves-saint-laurent-logo-png_seeklogo-197579.png",
       "description": "파리 하이패션의 세련되고 모던한 아이웨어.",
       "premium": true,
       "products": []
@@ -73,7 +51,7 @@
     {
       "name": "MOSCOT",
       "name_kr": "모스콧",
-      "image": "/images/common/moscot-logo-png_seeklogo-497314.png",
+      "image": "/images/glasses/모스콧/moscot-logo-png_seeklogo-497314.png",
       "description": "뉴욕 100년 전통의 클래식 아이웨어 브랜드.",
       "premium": true,
       "products": []
@@ -81,7 +59,7 @@
     {
       "name": "Porsche Design",
       "name_kr": "포르쉐 디자인",
-      "image": "/images/common/porsche-design-logo-png_seeklogo-322689.png",
+      "image": "/images/glasses/포르쉐디자인/porsche-design-logo-png_seeklogo-322689.png",
       "description": "독일 엔지니어링의 정밀함이 담긴 프리미엄 안경.",
       "premium": true,
       "products": []
